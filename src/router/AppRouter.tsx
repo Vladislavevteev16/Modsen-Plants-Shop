@@ -1,17 +1,15 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 import { Layout } from '@/components/Layout/Layout';
-
+import { PATH_NAME } from '@/constants/paths';
 import { HomePage } from '@/pages/HomePage';
-import { ShopPage } from '@/pages/ShopPage';
-import { PlaceYourOrderPage } from '@/pages/PlaceYourOrderPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
-
-import { PATH_NAME } from '@/constants';
+import { PlaceYourOrderPage } from '@/pages/PlaceYourOrderPage';
+import { ShopPage } from '@/pages/ShopPage';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: PATH_NAME.MAIN,
     element: <Layout />,
     children: [
       { index: true, element: <Navigate to={PATH_NAME.HOME} replace /> },
