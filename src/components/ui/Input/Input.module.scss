@@ -1,0 +1,65 @@
+$icon-size: 17px;
+$icon-offset: 14px;
+$icon-filter: invert(40%) sepia(15%) saturate(0%) hue-rotate(270deg) brightness(103%) contrast(94%);
+
+.inputContainer {
+  position: relative;
+  width: 100%;
+  max-width: 294px;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid var(--color-secondary-1);
+  padding: 0 40px 0 40px;
+  font-size: var(--fs-16);
+  font-weight: var(--fw-600);
+  line-height: 1;
+  color: rgba(52, 52, 52, 0.5);
+  transition: border-color 0.2s;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: none;
+    border-color: var(--color-neutral-100);
+  }
+
+  &::placeholder {
+    font-size: var(--fs-16);
+    color: rgba(52, 52, 52, 0.5);
+    font-weight: var(--fw-600);
+    line-height: 1;
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  left: var(--space-12);
+  top: 50%;
+  transform: translateY(-50%);
+  width: $icon-size;
+  height: $icon-size;
+  filter: $icon-filter;
+}
+
+.clearButton {
+  position: absolute;
+  right: var(--space-12);
+  top: 50%;
+  transform: translateY(-50%);
+  width: $icon-size;
+  height: $icon-size;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearIcon {
+  width: 100%;
+  height: 100%;
+  filter: $icon-filter;
+}
