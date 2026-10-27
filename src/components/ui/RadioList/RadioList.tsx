@@ -1,20 +1,19 @@
 import clsx from 'clsx';
 
-import type { AccordionType } from '../Accordion/types';
-import { Radio } from '../Radio/Radio';
+import { Radio } from '../Radio';
 import s from './RadioList.module.scss';
 
 type RadioListProps = {
   optionList: readonly string[];
-  type: AccordionType;
+  name: string;
   selectedValue: string;
-  handleSelectOption: (type: AccordionType, value: string) => void;
+  handleSelectOption: (type: string, value: string) => void;
   isOpen: boolean;
 };
 
 export const RadioList = ({
   optionList,
-  type,
+  name,
   selectedValue,
   handleSelectOption,
   isOpen,
@@ -23,9 +22,9 @@ export const RadioList = ({
     <div className={clsx(s.radioList, { [s.isOpen]: isOpen })}>
       <ul>
         {optionList.map((option) => (
-          <li key={option} className={s.item}>
+          <li key={option}>
             <Radio
-              type={type}
+              name={name}
               value={option}
               label={option}
               checked={selectedValue === option}

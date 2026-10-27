@@ -2,7 +2,6 @@ import FacebookIcon from '@/assets/facebook-icon.svg?react';
 import InstagramIcon from '@/assets/instagram-icon.svg?react';
 import TwitterIcon from '@/assets/twitter-icon.svg?react';
 import { Accordion } from '@/components/ui/Accordion';
-import { AutocompleteList } from '@/components/ui/AutocompleteList';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Loader } from '@/components/ui/Loader';
@@ -40,7 +39,6 @@ export const HomePage = () => {
         <Button>Buy</Button>
         <Button disabled>Shop Now</Button>
       </div>
-      <AutocompleteList />
       <Input />
       <Loader isLoading />
       <Logo />

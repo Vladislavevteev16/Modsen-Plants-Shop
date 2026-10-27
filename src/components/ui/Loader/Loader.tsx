@@ -8,6 +8,6 @@ type LoaderProps = {
   isLoading: boolean;
 };
 
-export const Loader = ({ isLoading = false }: LoaderProps) => {
+export const Loader = ({ isLoading }: LoaderProps) => {
   return <LoaderIcon className={clsx(s.loader, { [s.loading]: isLoading })} />;
 };

@@ -1,21 +1,22 @@
-import { useState } from 'react';
+import type { Plant } from '@/types/plant.types';
 
 import s from './AutocompleteList.module.scss';
 
-const MOCK_RESPONSE_LIST = ['Aster', 'Azeila', 'Anemone'];
+type AutocompleteListProps = {
+  searchResults: Plant[];
+  handleSelectPlant: (plantName: string) => void;
+};
 
-export const AutocompleteList = () => {
-  const [, setPlant] = useState<string>('');
+export const AutocompleteList = ({ searchResults, handleSelectPlant }: AutocompleteListProps) => {
+  const firstThreePopularPlants = searchResults.slice(0, 3);
 
-  const handleChangePlant = (plant: string) => setPlant(plant);
-
-  if (MOCK_RESPONSE_LIST.length === 0) return null;
+  if (searchResults.length === 0) return null;
 
   return (
     <ul className={s.listContainer}>
-      {MOCK_RESPONSE_LIST.map((plant) => (
-        <li className={s.plant} key={plant} onClick={() => handleChangePlant(plant)}>
-          {plant}
+      {firstThreePopularPlants.map(({ id, name }) => (
+        <li className={s.plant} key={id} onClick={() => handleSelectPlant(name)}>
+          {name}
         </li>
       ))}
     </ul>

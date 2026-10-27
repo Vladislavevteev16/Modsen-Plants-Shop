@@ -15,13 +15,13 @@ const HEADER_TITLE: Record<AccordionType, string> = {
 };
 
 export const Accordion = ({ type }: AccordionProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false); // При создании страницы HomePage, вынесу логику компонента в хук, и сделаю его глупым компонентом
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const [selected, setSelected] = useState({ all: 'All', categories: 'All', sale: 'All' });
 
   const handleChangeOpen = () => setIsOpen((prev) => !prev);
 
-  const handleSelectOption = (type: AccordionType, option: string) =>
+  const handleSelectOption = (type: string, option: string) =>
     setSelected((prev) => ({ ...prev, [type]: option }));
 
   const headerTitle = HEADER_TITLE[type];
@@ -35,7 +35,7 @@ export const Accordion = ({ type }: AccordionProps) => {
         </div>
       </button>
       <RadioList
-        type={type}
+        name={type}
         isOpen={isOpen}
         handleSelectOption={handleSelectOption}
         optionList={FILTER_OPTIONS[type]}

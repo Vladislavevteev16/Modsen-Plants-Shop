@@ -1,24 +1,23 @@
-import type { AccordionType } from '../Accordion/types';
 import s from './Radio.module.scss';
 
 type RadioProps = {
   value: string;
   label: string;
-  type: AccordionType;
+  name: string;
   checked: boolean;
-  handleSelectOption: (type: AccordionType, value: string) => void;
+  handleSelectOption: (type: string, value: string) => void;
 };
 
-export const Radio = ({ value, label, type, checked, handleSelectOption }: RadioProps) => {
+export const Radio = ({ value, label, name, checked, handleSelectOption }: RadioProps) => {
   return (
     <label className={s.radioLabel}>
       <input
         className={s.radio}
         type="radio"
-        name={type}
+        name={name}
         value={value}
         checked={checked}
-        onChange={() => handleSelectOption(type, value)}
+        onChange={() => handleSelectOption(name, value)}
       />
       <span className={s.text}>{label}</span>
     </label>

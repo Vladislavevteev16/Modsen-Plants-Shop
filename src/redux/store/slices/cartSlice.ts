@@ -19,23 +19,24 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     plantAdded: (state, action: PayloadAction<CartPlant>) => {
-      state.cartItems.push({ ...action.payload, quantity: 1 });
-    },
-    plantRemoved: (state, action: PayloadAction<Pick<CartPlant, 'id'>>) => {
-      state.cartItems = state.cartItems.filter((el) => el.id !== action.payload.id);
-    },
-    plantQuantityIncremented: (state, action: PayloadAction<Pick<CartPlant, 'id'>>) => {
       const findElement = state.cartItems.find((el) => el.id === action.payload.id);
 
       if (findElement) {
         findElement.quantity += 1;
+      } else {
+        state.cartItems.push({ ...action.payload, quantity: 1 });
       }
+    },
+    plantRemoved: (state, action: PayloadAction<Pick<CartPlant, 'id'>>) => {
+      state.cartItems = state.cartItems.filter((el) => el.id !== action.payload.id);
     },
     plantQuantityDecremented: (state, action: PayloadAction<Pick<CartPlant, 'id'>>) => {
       const findElement = state.cartItems.find((el) => el.id === action.payload.id);
 
-      if (findElement && findElement?.quantity > 0) {
+      if (findElement && findElement?.quantity > 1) {
         findElement.quantity -= 1;
+      } else {
+        state.cartItems = state.cartItems.filter((el) => el.id !== action.payload.id);
       }
     },
   },
@@ -46,8 +47,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { plantAdded, plantRemoved, plantQuantityDecremented, plantQuantityIncremented } =
-  cartSlice.actions;
+export const { plantAdded, plantRemoved, plantQuantityDecremented } = cartSlice.actions;
 
 export const { selectCartItems, selectTotalPrice } = cartSlice.selectors;
 

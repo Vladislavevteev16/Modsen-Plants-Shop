@@ -10,10 +10,6 @@ $transition: 0.3s ease;
     max-height $transition,
     padding-top $transition;
 
-  transition:
-    max-height $transition,
-    margin-top $transition;
-
   &::-webkit-scrollbar {
     width: var(--space-8);
   }
