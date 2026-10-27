@@ -2,7 +2,7 @@ import s from './SocialLink.module.scss';
 
 type SocialLinkProps = {
   Icon: React.ElementType;
-  href: string;
+  href?: string;
 };
 
 export const SocialLink = ({ Icon, href }: SocialLinkProps) => {
