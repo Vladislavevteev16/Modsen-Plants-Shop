@@ -8,6 +8,7 @@ import s from './Navigation.module.scss';
 type NavigationProps = {
   handleClose?: () => void;
   cartCount?: number;
+  isMenuOpen: boolean;
 };
 
 const NAV_ITEMS = [
@@ -16,9 +17,9 @@ const NAV_ITEMS = [
   { title: 'Cart', path: PATH_NAME.ORDER },
 ];
 
-export const Navigation = ({ handleClose, cartCount = 3 }: NavigationProps) => {
+export const Navigation = ({ handleClose, cartCount = 3, isMenuOpen }: NavigationProps) => {
   return (
-    <nav className={s.nav}>
+    <nav className={clsx(s.nav, { [s.isOpen]: isMenuOpen })}>
       <ul className={s.list}>
         {NAV_ITEMS.map(({ title, path }) => (
           <li key={title}>

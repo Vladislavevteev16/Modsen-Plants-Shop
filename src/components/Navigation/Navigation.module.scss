@@ -36,6 +36,7 @@
     background-color: var(--color-primary-4);
     padding: 33px 0 33px 0;
     border-top: 1px solid var(--color-neutral-1);
+    display: none;
   }
 
   .list {
@@ -49,5 +50,9 @@
   .link {
     font-size: var(--fs-24);
     color: var(--color-white);
+  }
+
+  .nav.isOpen {
+    display: flex;
   }
 }
