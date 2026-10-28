@@ -1,3 +1,4 @@
+import '@fontsource-variable/open-sans';
 import '@/styles/global.scss';
 import '@/styles/_variables.scss';
 

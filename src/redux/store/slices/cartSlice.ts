@@ -18,7 +18,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    plantAdded: (state, action: PayloadAction<CartPlant>) => {
+    plantAdded: (state, action: PayloadAction<Plant>) => {
       const findElement = state.cartItems.find((el) => el.id === action.payload.id);
 
       if (findElement) {
@@ -33,7 +33,7 @@ const cartSlice = createSlice({
     plantQuantityDecremented: (state, action: PayloadAction<Pick<CartPlant, 'id'>>) => {
       const findElement = state.cartItems.find((el) => el.id === action.payload.id);
 
-      if (findElement && findElement?.quantity > 1) {
+      if (findElement && findElement.quantity > 1) {
         findElement.quantity -= 1;
       } else {
         state.cartItems = state.cartItems.filter((el) => el.id !== action.payload.id);

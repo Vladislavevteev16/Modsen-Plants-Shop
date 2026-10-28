@@ -15,7 +15,7 @@ $transition: 0.3s ease;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #7a7a7a;
+    background-color: var(--color-scrollbar);
     border-radius: 10px;
   }
 

@@ -17,7 +17,7 @@ $icon-filter: invert(40%) sepia(15%) saturate(0%) hue-rotate(270deg) brightness(
   font-size: var(--fs-16);
   font-weight: var(--fw-600);
   line-height: 1;
-  color: rgba(52, 52, 52, 0.5);
+  color: var(--color-secondary-1-50);
   transition: border-color 0.2s;
 
   &:focus,
@@ -29,7 +29,7 @@ $icon-filter: invert(40%) sepia(15%) saturate(0%) hue-rotate(270deg) brightness(
 
   &::placeholder {
     font-size: var(--fs-16);
-    color: rgba(52, 52, 52, 0.5);
+    color: var(--color-secondary-1-50);
     font-weight: var(--fw-600);
     line-height: 1;
   }
