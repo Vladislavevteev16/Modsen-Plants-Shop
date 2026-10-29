@@ -3,7 +3,6 @@ import InstagramIcon from '@/assets/instagram-icon.svg?react';
 import TwitterIcon from '@/assets/twitter-icon.svg?react';
 import { Accordion } from '@/components/ui/Accordion';
 import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
 import { Loader } from '@/components/ui/Loader';
 import { Logo } from '@/components/ui/Logo';
 import { SocialLink } from '@/components/ui/SocialLink';
@@ -39,7 +38,6 @@ export const HomePage = () => {
         <Button>Buy</Button>
         <Button disabled>Shop Now</Button>
       </div>
-      <Input />
       <Loader isLoading />
       <Logo />
       <div
