@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+  max-width: 1200px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 0 22px;
+    height: 65px;
+    background-color: var(--color-primary-4);
+  }
+}
