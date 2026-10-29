@@ -1,0 +1,11 @@
+.searchBarContainer {
+  width: 100%;
+  max-width: 294px;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .searchBarContainer {
+    display: none;
+  }
+}
