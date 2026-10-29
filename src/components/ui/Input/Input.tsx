@@ -1,19 +1,15 @@
-import { useState } from 'react';
-
 import ClearIcon from '@/assets/cross-icon.svg?react';
 import SearchIcon from '@/assets/search-icon.svg?react';
 
 import s from './Input.module.scss';
 
 type InputProps = {
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleClearValue?: () => void;
+  value: string;
+  handleChangeSearchValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleClearSearchValue: () => void;
 };
 
-export const Input = ({ handleClearValue }: InputProps) => {
-  const [value, setValue] = useState<string>('');
-
+export const Input = ({ value, handleClearSearchValue, handleChangeSearchValue }: InputProps) => {
   return (
     <div className={s.inputContainer}>
       <SearchIcon className={s.searchIcon} />
@@ -22,11 +18,11 @@ export const Input = ({ handleClearValue }: InputProps) => {
         placeholder="Search plants..."
         type="text"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={handleChangeSearchValue}
       />
       {value && (
-        <button className={s.clearButton} onClick={handleClearValue} type="button">
-          <ClearIcon onClick={() => setValue('')} className={s.clearIcon} />
+        <button className={s.clearButton} onClick={handleClearSearchValue} type="button">
+          <ClearIcon onClick={handleClearSearchValue} />
         </button>
       )}
     </div>
