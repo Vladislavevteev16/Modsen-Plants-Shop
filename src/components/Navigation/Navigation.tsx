@@ -29,7 +29,9 @@ export const Navigation = ({ handleClose, cartCount = 3, isMenuOpen }: Navigatio
               onClick={handleClose}
             >
               {title}
-              {path === PATH_NAME.ORDER && cartCount > 0 && <span>({cartCount})</span>}
+              {path === PATH_NAME.ORDER && cartCount > 0 && (
+                <span className={s.cartCount}>({cartCount})</span>
+              )}
             </NavLink>
           </li>
         ))}
