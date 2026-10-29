@@ -1,0 +1,19 @@
+.burgerBtn {
+  display: none;
+  padding: var(--space-8);
+  z-index: var(--z-index-1);
+  padding: 0;
+  width: 37px;
+  height: 37px;
+
+  & svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .burgerBtn {
+    display: block;
+  }
+}
