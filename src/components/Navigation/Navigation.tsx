@@ -12,7 +12,7 @@ type NavigationProps = {
 };
 
 const NAV_ITEMS = [
-  { title: 'Home', path: PATH_NAME.HOME },
+  { title: 'Home', path: PATH_NAME.MAIN },
   { title: 'Shop', path: PATH_NAME.SHOP },
   { title: 'Cart', path: PATH_NAME.ORDER },
 ];
@@ -24,7 +24,7 @@ export const Navigation = ({ handleClose, cartCount = 3, isMenuOpen }: Navigatio
         {NAV_ITEMS.map(({ title, path }) => (
           <li key={title}>
             <NavLink
-              to={`/${path}`}
+              to={path}
               className={({ isActive }) => clsx(s.link, { [s.active]: isActive })}
               onClick={handleClose}
             >
