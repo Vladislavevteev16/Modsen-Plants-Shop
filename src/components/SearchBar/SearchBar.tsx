@@ -1,8 +1,11 @@
 import { useSearchBar } from '@/hooks/useSearchBar';
+import type { Plant } from '@/types/plant.types';
 
 import { AutocompleteList } from '../ui/AutocompleteList';
 import { Input } from '../ui/Input';
 import s from './SearchBar.module.scss';
+
+const MOCK_LIST: Plant[] = [];
 
 export const SearchBar = () => {
   const { value, handleChangeSearchValue, handleClearSearchValue, handleSelectPlant } =
@@ -15,7 +18,11 @@ export const SearchBar = () => {
         handleClearSearchValue={handleClearSearchValue}
         handleChangeSearchValue={handleChangeSearchValue}
       />
-      <AutocompleteList value={value} handleSelectPlant={handleSelectPlant} />
+      <AutocompleteList
+        searchResults={MOCK_LIST}
+        value={value}
+        handleSelectPlant={handleSelectPlant}
+      />
     </div>
   );
 };
