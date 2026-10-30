@@ -10,15 +10,7 @@ export const useMenu = () => {
   const handleCloseMenu = () => setIsMenuOpen(false);
 
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.classList.add(MENU_OPEN);
-    } else {
-      document.body.classList.remove(MENU_OPEN);
-    }
-
-    return () => {
-      document.body.classList.remove(MENU_OPEN);
-    };
+    document.body.classList.toggle(MENU_OPEN, isMenuOpen);
   }, [isMenuOpen]);
 
   return { isMenuOpen, handleToggleMenu, handleCloseMenu };

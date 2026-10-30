@@ -22,7 +22,7 @@ export const Input = ({ value, handleClearSearchValue, handleChangeSearchValue }
       />
       {value && (
         <button className={s.clearButton} onClick={handleClearSearchValue} type="button">
-          <ClearIcon onClick={handleClearSearchValue} />
+          <ClearIcon className={s.clearIcon} />
         </button>
       )}
     </div>

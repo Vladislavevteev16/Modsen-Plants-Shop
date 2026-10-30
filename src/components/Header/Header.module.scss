@@ -6,9 +6,10 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
+  margin: 0 auto;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: $breakpoint-desktop) {
   .header {
     padding: 0 22px;
     height: 65px;

@@ -7,7 +7,7 @@ import s from './Logo.module.scss';
 
 export const Logo = () => {
   return (
-    <Link to={PATH_NAME.MAIN}>
+    <Link to={PATH_NAME.HOME}>
       <LogoIcon className={s.logo} />
     </Link>
   );

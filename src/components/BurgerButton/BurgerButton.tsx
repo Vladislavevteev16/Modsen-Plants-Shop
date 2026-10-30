@@ -10,7 +10,7 @@ type BurgerButtonProps = {
 
 export const BurgerButton = ({ isMenuOpen, handleToggleMenu }: BurgerButtonProps) => {
   return (
-    <button className={s.burgerBtn} onClick={handleToggleMenu}>
+    <button type="button" className={s.burgerBtn} onClick={handleToggleMenu}>
       {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
     </button>
   );

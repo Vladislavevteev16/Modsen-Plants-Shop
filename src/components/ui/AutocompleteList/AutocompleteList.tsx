@@ -17,7 +17,7 @@ export const AutocompleteList = ({
 }: AutocompleteListProps) => {
   const firstThreePopularPlants = searchResults.slice(0, 3);
 
-  if (value.length === 0 && searchResults.length === 0) return null;
+  if (value.trim().length === 0 && searchResults.length === 0) return null;
 
   return (
     <ul className={s.listContainer}>
