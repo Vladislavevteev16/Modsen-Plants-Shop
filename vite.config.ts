@@ -11,4 +11,16 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: (content, loaderContext) => {
+          if (loaderContext.endsWith('_variables.scss')) {
+            return content;
+          }
+          return `@use "@/styles/variables" as *;\n${content}`;
+        },
+      },
+    },
+  },
 });

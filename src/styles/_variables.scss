@@ -10,6 +10,7 @@
   --color-primary-1: #3b823e;
   --color-primary-2: #01370c;
   --color-primary-3: #506b52;
+  --color-primary-4: #013724;
 
   --color-secondary-1: #343434;
   --color-secondary-2: #e3e5e5;
@@ -44,6 +45,7 @@
   --fs-16: 16px;
   --fs-18: 18px;
   --fs-20: 20px;
+  --fs-24: 24px;
   --fs-40: 40px;
   --fs-48: 48px;
 
@@ -55,3 +57,5 @@
 
   --width-desktop: 1440px;
 }
+
+$breakpoint-desktop: 1024px;
