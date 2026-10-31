@@ -19,3 +19,12 @@ export type Plant = {
   available: boolean;
   discount: number;
 };
+
+export type FetchProductsParams = Partial<{
+  page: number;
+  limit: number;
+  search: string;
+  type: string;
+  category: string;
+  sale: string;
+}>;
