@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import { FILTER_DEFAULTS } from '@/constants/api';
 
-type FiltersState = {
+export type FiltersState = {
   type: string;
   category: string;
   sale: string;
