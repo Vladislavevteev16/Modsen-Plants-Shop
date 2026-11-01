@@ -1,9 +1,15 @@
 .layout {
   width: 100%;
-  max-width: var(--width-desktop);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   margin: 0 auto;
+}
+
+.content {
+  width: 100%;
+  max-width: var(--width-desktop);
+  margin: 0 auto;
+  flex: 1; 
 }
