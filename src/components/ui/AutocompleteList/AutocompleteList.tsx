@@ -11,7 +11,7 @@ type AutocompleteListProps = {
 };
 
 export const AutocompleteList = ({
-  searchResults = [],
+  searchResults,
   handleSelectPlant,
   value,
 }: AutocompleteListProps) => {
