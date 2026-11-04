@@ -1,0 +1,137 @@
+$transition: 0.3s ease;
+
+.cardContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border-radius: var(--space-16);
+  transition:
+    box-shadow $transition,
+    transform $transition;
+
+  &:hover {
+    box-shadow: 0px var(--space-4) var(--space-20) var(--color-secondary-1-20);
+    transform: translateY(var(--space-4));
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--space-8);
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-white);
+  font-size: var(--fs-24);
+  font-weight: var(--fw-600);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+.categoryCard {
+  max-width: 384px;
+  padding: var(--space-20);
+
+  .imageWrapper {
+    height: 308px;
+    margin-bottom: var(--space-16);
+  }
+}
+
+.productCard {
+  max-width: 282px;
+  padding: var(--space-24) var(--space-20) var(--space-16) var(--space-20);
+  max-height: 364px;
+
+  .imageWrapper {
+    height: 170px;
+    margin-bottom: var(--space-16);
+  }
+
+  .title {
+    position: static;
+    transform: none;
+    color: var(--color-secondary-1);
+    text-align: left;
+    font-size: var(--fs-20);
+    font-weight: var(--fw-700);
+    letter-spacing: 0;
+    text-transform: none;
+    width: auto;
+  }
+
+  .priceBlock {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
+  }
+
+  .currentPrice {
+    font-size: var(--fs-18);
+    font-weight: var(--fw-600);
+    color: var(--color-secondary-1);
+  }
+
+  .oldPrice {
+    font-size: var(--fs-14);
+    color: var(--color-neutral-400);
+    text-decoration: line-through;
+  }
+}
+
+@media (max-width: $breakpoint-desktop) {
+  .categoryCard {
+    flex: 0 0 auto;
+    max-width: 231px;
+    min-height: 313px;
+    padding: var(--space-16) var(--space-12);
+
+    .imageWrapper {
+      height: 100%;
+      margin-bottom: var(--space-8);
+    }
+
+    .title {
+      font-size: var(--fs-18);
+    }
+
+    .actionBtn {
+      min-height: 64px;
+      white-space: nowrap;
+      font-size: var(--fs-14);
+    }
+  }
+
+  .productCard {
+    flex: 0 0 auto;
+    padding: var(--space-16);
+
+    .imageWrapper {
+      height: 200px;
+    }
+
+    .title {
+      font-size: var(--fs-18);
+    }
+
+    .actionBtn {
+      min-height: var(--space-48);
+    }
+  }
+}

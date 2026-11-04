@@ -1,7 +1,7 @@
 export type PaginatedResponse = {
   images: {
     total_count: number;
-    total_page: number;
+    total_pages: number;
     current_page: number;
     limit: number;
     data: Plant[];
