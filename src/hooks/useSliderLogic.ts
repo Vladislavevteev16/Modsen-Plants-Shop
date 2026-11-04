@@ -12,6 +12,7 @@ import succulentsImage from '@/assets/slider-plant-images/succulent-png.png';
 import treeImage from '@/assets/slider-plant-images/tree-image.jpg';
 import tropicalImage from '@/assets/slider-plant-images/tropical-png.png';
 import vineImage from '@/assets/slider-plant-images/vine-image.jpg';
+import { FILTER_DEFAULTS } from '@/constants/api';
 import { FILTER_OPTIONS } from '@/constants/filters';
 
 export const DIRECTION = {
@@ -37,7 +38,7 @@ const TYPE_IMAGE_MAP: Record<string, string> = {
 };
 
 const plantsTypeList = FILTER_OPTIONS.all
-  .filter((type) => type !== 'All')
+  .filter((type) => type !== FILTER_DEFAULTS.ALL)
   .map((type) => ({
     typeValue: type,
     title: type,
