@@ -11,22 +11,22 @@ type AutocompleteListProps = {
 };
 
 export const AutocompleteList = ({
-  searchResults = [],
+  searchResults,
   handleSelectPlant,
   value,
 }: AutocompleteListProps) => {
-  const firstThreePopularPlants = searchResults.slice(0, 3);
-
   const hasValue = value.trim().length > 0;
 
-  const isNotFound = hasValue && searchResults.length === 0;
+  if (!hasValue) return null;
 
-  if (!hasValue && searchResults.length === 0) return null;
+  const isNotFound = searchResults.length === 0;
+
+  const displaySuggestions = hasValue ? searchResults : [];
 
   return (
     <ul className={s.listContainer}>
       {isNotFound && <li className={clsx(s.plant, s.disabled)}>Not Found</li>}
-      {firstThreePopularPlants.map(({ id, name }) => (
+      {displaySuggestions.map(({ id, name }) => (
         <li className={s.plant} key={id} onClick={() => handleSelectPlant(name)}>
           {name}
         </li>

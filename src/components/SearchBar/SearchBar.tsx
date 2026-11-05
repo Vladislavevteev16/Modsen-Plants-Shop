@@ -1,25 +1,28 @@
+import clsx from 'clsx';
+
 import { useSearchBar } from '@/hooks/useSearchBar';
-import type { Plant } from '@/types/plant.types';
 
 import { AutocompleteList } from '../ui/AutocompleteList';
 import { Input } from '../ui/Input';
 import s from './SearchBar.module.scss';
 
-const MOCK_LIST: Plant[] = [];
+type SearchBarProps = {
+  isMobileVersion?: boolean;
+};
 
-export const SearchBar = () => {
-  const { value, handleChangeSearchValue, handleClearSearchValue, handleSelectPlant } =
+export const SearchBar = ({ isMobileVersion }: SearchBarProps) => {
+  const { value, handleChangeSearchValue, handleClearSearchValue, handleSelectPlant, suggestions } =
     useSearchBar();
 
   return (
-    <div className={s.searchBarContainer}>
+    <div className={clsx(s.searchBarContainer, { [s.showOnMobile]: isMobileVersion })}>
       <Input
         value={value}
         handleClearSearchValue={handleClearSearchValue}
         handleChangeSearchValue={handleChangeSearchValue}
       />
       <AutocompleteList
-        searchResults={MOCK_LIST}
+        searchResults={suggestions}
         value={value}
         handleSelectPlant={handleSelectPlant}
       />

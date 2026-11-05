@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import type { Plant } from '@/types/plant.types';
 
-type CartPlant = Plant & {
+export type CartPlant = Plant & {
   quantity: number;
 };
 
