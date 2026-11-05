@@ -33,7 +33,7 @@
   pointer-events: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: $breakpoint-desktop) {
   .listContainer {
     margin-top: var(--space-8);
   }

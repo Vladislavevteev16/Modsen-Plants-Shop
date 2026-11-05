@@ -11,6 +11,10 @@ export const useMenu = () => {
 
   useEffect(() => {
     document.body.classList.toggle(MENU_OPEN, isMenuOpen);
+
+    return () => {
+      document.body.classList.remove(MENU_OPEN);
+    };
   }, [isMenuOpen]);
 
   return { isMenuOpen, handleToggleMenu, handleCloseMenu };
