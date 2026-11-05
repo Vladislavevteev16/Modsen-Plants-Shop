@@ -1,0 +1,1 @@
+export { DiscountSticker } from './DiscountSticker';

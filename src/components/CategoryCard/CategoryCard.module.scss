@@ -23,6 +23,13 @@ $transition: 0.3s ease;
   overflow: hidden;
 }
 
+.stickerWrapper {
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  z-index: var(--z-index-1);
+}
+
 .image {
   width: 100%;
   height: 100%;
@@ -90,7 +97,7 @@ $transition: 0.3s ease;
 
   .oldPrice {
     font-size: var(--fs-14);
-    color: var(--color-neutral-400);
+    color: var(--color-negative-1);
     text-decoration: line-through;
   }
 }

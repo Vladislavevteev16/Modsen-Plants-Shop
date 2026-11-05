@@ -2,8 +2,10 @@ import clsx from 'clsx';
 
 import { Button } from '@/components/ui/Button';
 import { CARD_VARIANT, TITLE_BUTTON } from '@/constants/card';
+import { calculateDiscount } from '@/helpers/calculateDiscount';
 
 import { QuantityControl } from '../QuantityControl';
+import { DiscountSticker } from '../ui/DiscountSticker/DiscountSticker';
 import s from './CategoryCard.module.scss';
 
 type CardVariant = 'category' | 'product';
@@ -16,8 +18,8 @@ type CategoryCardProps = {
   available?: boolean;
   cartQuantity?: number;
   handleShopRedirect?: () => void;
-  handleIncrement?: () => void;
-  handleDecrement?: () => void;
+  handleAddPlantInCart?: () => void;
+  handleRemovePlantInCart?: () => void;
   variant: CardVariant;
 };
 
@@ -29,21 +31,17 @@ export const CategoryCard = ({
   available,
   handleShopRedirect,
   cartQuantity = 0,
-  handleIncrement,
-  handleDecrement,
+  handleAddPlantInCart,
+  handleRemovePlantInCart,
   variant,
 }: CategoryCardProps) => {
   const isProduct = variant === CARD_VARIANT.PRODUCT;
   const isOutOfStock = available === false;
   const isItemInCart = cartQuantity > 0;
 
-  const handleButtonClick = () => {
-    if (isProduct) {
-      handleIncrement?.();
-    } else {
-      handleShopRedirect?.();
-    }
-  };
+  const discountPercent = calculateDiscount(price, oldPrice);
+
+  const handleButtonClick = () => (isProduct ? handleAddPlantInCart?.() : handleShopRedirect?.());
 
   return (
     <article
@@ -54,6 +52,11 @@ export const CategoryCard = ({
     >
       <div className={s.imageWrapper}>
         <img src={image} alt={title} className={s.image} />
+        {isProduct && oldPrice && (
+          <div className={s.stickerWrapper}>
+            <DiscountSticker discountValue={`${discountPercent}%`} />
+          </div>
+        )}
         {!isProduct && <h3 className={s.title}>{title}</h3>}
       </div>
       <div className={s.content}>
@@ -67,8 +70,8 @@ export const CategoryCard = ({
         {isProduct && isItemInCart ? (
           <QuantityControl
             quantity={cartQuantity}
-            handleIncrement={handleIncrement!}
-            handleDecrement={handleDecrement!}
+            handleIncrement={handleAddPlantInCart!}
+            handleDecrement={handleRemovePlantInCart!}
           />
         ) : (
           <Button disabled={isOutOfStock} onClick={handleButtonClick} className={s.actionBtn}>
