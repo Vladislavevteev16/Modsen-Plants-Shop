@@ -1,0 +1,1 @@
+export { PlantTypesSlider } from './PlantTypesSlider';

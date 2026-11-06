@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { Layout } from '@/components/Layout';
 import { PATH_NAME } from '@/constants/paths';
@@ -12,12 +12,11 @@ const router = createBrowserRouter([
     path: PATH_NAME.MAIN,
     element: <Layout />,
     children: [
-      { index: true, element: <Navigate to={PATH_NAME.HOME} replace /> },
+      { index: true, element: <HomePage /> },
       { path: PATH_NAME.SHOP, element: <ShopPage /> },
       { path: PATH_NAME.ORDER, element: <PlaceYourOrderPage /> },
     ],
   },
-  { path: PATH_NAME.HOME, element: <HomePage /> },
   { path: '*', element: <NotFoundPage /> },
 ]);
 

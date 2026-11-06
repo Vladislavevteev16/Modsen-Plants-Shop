@@ -1,0 +1,42 @@
+.footer {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-height: 150px;
+  background-color: var(--color-primary-4);
+}
+
+.content {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  gap: var(--space-16);
+}
+
+.copyright {
+  p {
+    color: var(--color-white);
+    font-weight: var(--fw-400);
+    font-size: var(--fs-16);
+  }
+}
+
+@media (max-width: $breakpoint-desktop) {
+  .footer {
+    min-height: 428px;
+  }
+
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-52);
+  }
+}

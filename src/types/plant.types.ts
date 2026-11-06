@@ -1,7 +1,7 @@
 export type PaginatedResponse = {
   images: {
     total_count: number;
-    total_page: number;
+    total_pages: number;
     current_page: number;
     limit: number;
     data: Plant[];
@@ -19,3 +19,12 @@ export type Plant = {
   available: boolean;
   discount: number;
 };
+
+export type FetchProductsParams = Partial<{
+  page: number;
+  limit: number;
+  search: string;
+  type: string;
+  category: string;
+  sale: string;
+}>;

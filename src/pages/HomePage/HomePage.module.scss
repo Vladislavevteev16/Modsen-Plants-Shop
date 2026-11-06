@@ -1,0 +1,14 @@
+.homePageContainer {
+  width: 100%;
+  max-width: var(--width-main-content);
+  margin: 0 auto;
+  margin-top: var(--space-60);
+  padding-bottom: 190px;
+}
+
+@media (max-width: $breakpoint-desktop) {
+  .homePageContainer {
+    margin-top: var(--space-12);
+    padding-bottom: 110px;
+  }
+}

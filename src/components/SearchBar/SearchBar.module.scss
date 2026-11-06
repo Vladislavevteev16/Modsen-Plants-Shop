@@ -1,0 +1,16 @@
+.searchBarContainer {
+  width: 100%;
+  max-width: 294px;
+  position: relative;
+}
+
+@media (max-width: $breakpoint-desktop) {
+  .searchBarContainer {
+    display: none;
+  }
+
+  .showOnMobile {
+    display: block;
+    margin: 40px auto 120px auto;
+  }
+}
