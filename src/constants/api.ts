@@ -15,5 +15,5 @@ export const FILTER_DEFAULTS = {
 
 export const PAGINATION = {
   DEFAULT_PAGE: 1,
-  DEFAULT_LIMIT: 6,
+  DEFAULT_LIMIT: 8,
 } as const;

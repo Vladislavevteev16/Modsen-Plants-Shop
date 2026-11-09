@@ -14,6 +14,8 @@ export const HomePage = () => {
     handleShopRedirect,
     handleAddPlantInCart,
     handleRemovePlantInCart,
+    isLoading,
+    error,
   } = useHomePageLogic();
 
   const { isMobile } = useMobileDetection();
@@ -24,10 +26,11 @@ export const HomePage = () => {
       {isMobile && <SearchBar isMobileVersion />}
       <BestCategories handleShopRedirect={handleShopRedirect} />
       <YouMayAlso
+        isLoading={isLoading}
+        error={error}
         products={productsWithCart}
         handleAddPlantInCart={handleAddPlantInCart}
         handleRemovePlantInCart={handleRemovePlantInCart}
-        handleShopRedirect={handleShopRedirect}
       />
     </main>
   );

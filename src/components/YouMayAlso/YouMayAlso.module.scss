@@ -17,6 +17,25 @@
   gap: var(--space-28);
 }
 
+.loaderWrapper,
+.errorWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 860px;
+  width: 100%;
+}
+
+.errorWrapper {
+  color: var(--color-negative-1);
+  font-size: var(--fs-16);
+}
+
+.loader {
+  width: 150px;
+  height: 150px;
+}
+
 @media (max-width: $breakpoint-desktop) {
   .youMayAlsoContainer {
     margin-top: var(--space-40);

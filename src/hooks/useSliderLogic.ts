@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 import annualImage from '@/assets/slider-plant-images/annual-image.jpg';
 import aroidImage from '@/assets/slider-plant-images/aroid-image.jpg';
@@ -15,10 +15,12 @@ import vineImage from '@/assets/slider-plant-images/vine-image.jpg';
 import { FILTER_DEFAULTS } from '@/constants/api';
 import { FILTER_OPTIONS } from '@/constants/filters';
 
-export const DIRECTION = {
+export type ScrollDirection = 'left' | 'right';
+
+export const DIRECTION: Record<ScrollDirection, ScrollDirection> = {
   left: 'left',
   right: 'right',
-} as const;
+};
 
 const SCROLL_AMOUNT = 1230;
 
@@ -48,9 +50,16 @@ const plantsTypeList = FILTER_OPTIONS.all
 export const useSliderLogic = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const handleScroll = (direction: keyof typeof DIRECTION) => {
+  const [lastDirection, setLastDirection] = useState<ScrollDirection>(DIRECTION.left);
+
+  const isLeftDisabled = lastDirection === DIRECTION.left;
+  const isRightDisabled = lastDirection === DIRECTION.right;
+
+  const handleScroll = (direction: ScrollDirection) => {
     if (sliderRef.current) {
       const currentScroll = sliderRef.current.scrollLeft;
+
+      setLastDirection(direction);
 
       sliderRef.current.scrollTo({
         left:
@@ -62,5 +71,5 @@ export const useSliderLogic = () => {
     }
   };
 
-  return { plantsTypeList, handleScroll, sliderRef };
+  return { plantsTypeList, handleScroll, sliderRef, isLeftDisabled, isRightDisabled };
 };

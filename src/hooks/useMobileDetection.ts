@@ -11,9 +11,9 @@ export const useMobileDetection = () => {
     };
 
     handleResize();
-    addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);
 
-    return () => removeEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return { isMobile };

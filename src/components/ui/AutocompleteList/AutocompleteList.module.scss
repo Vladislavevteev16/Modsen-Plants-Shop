@@ -33,6 +33,10 @@
   pointer-events: none;
 }
 
+.error {
+  color: var(--color-negative-1);
+}
+
 @media (max-width: $breakpoint-desktop) {
   .listContainer {
     margin-top: var(--space-8);

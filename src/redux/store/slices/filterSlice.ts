@@ -27,6 +27,7 @@ const filtersSlice = createSlice({
       state.type = FILTER_DEFAULTS.ALL;
       state.category = FILTER_DEFAULTS.ALL;
       state.sale = FILTER_DEFAULTS.ALL;
+      state.search = '';
     },
   },
 });

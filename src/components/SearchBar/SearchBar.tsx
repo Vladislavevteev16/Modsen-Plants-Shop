@@ -11,8 +11,14 @@ type SearchBarProps = {
 };
 
 export const SearchBar = ({ isMobileVersion }: SearchBarProps) => {
-  const { value, handleChangeSearchValue, handleClearSearchValue, handleSelectPlant, suggestions } =
-    useSearchBar();
+  const {
+    value,
+    handleChangeSearchValue,
+    handleClearSearchValue,
+    handleSelectPlant,
+    suggestions,
+    error,
+  } = useSearchBar();
 
   return (
     <div className={clsx(s.searchBarContainer, { [s.showOnMobile]: isMobileVersion })}>
@@ -22,6 +28,7 @@ export const SearchBar = ({ isMobileVersion }: SearchBarProps) => {
         handleChangeSearchValue={handleChangeSearchValue}
       />
       <AutocompleteList
+        error={error}
         searchResults={suggestions}
         value={value}
         handleSelectPlant={handleSelectPlant}

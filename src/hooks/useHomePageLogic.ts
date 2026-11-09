@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { PAGINATION } from '@/constants/api';
 import { PATH_NAME } from '@/constants/paths';
 import { useAppDispatch, useAppSelector } from '@/redux/store/hooks';
 import {
@@ -8,31 +9,29 @@ import {
   plantQuantityDecremented,
   selectCartItems,
 } from '@/redux/store/slices/cartSlice';
-import { setFilter } from '@/redux/store/slices/filterSlice';
-import { clearProducts, fetchProducts } from '@/redux/store/slices/productSlice';
+import { resetFilters, setFilter } from '@/redux/store/slices/filterSlice';
+import { fetchProducts } from '@/redux/store/slices/productSlice';
 import type { Plant } from '@/types/plant.types';
-
-const DEFAULT_PAGE = 1;
-const DEFAULT_LIMIT = 8;
 
 export const useHomePageLogic = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const { items: products } = useAppSelector((state) => state.product);
+  const { items: products, isLoading, error } = useAppSelector((state) => state.product);
   const cartItems = useAppSelector(selectCartItems);
 
   useEffect(() => {
-    dispatch(clearProducts());
-    dispatch(fetchProducts({ page: DEFAULT_PAGE, limit: DEFAULT_LIMIT }));
+    dispatch(fetchProducts({ page: PAGINATION.DEFAULT_PAGE, limit: PAGINATION.DEFAULT_LIMIT }));
   }, [dispatch]);
 
   const handleSelectPlant = (plantType: string) => {
+    dispatch(resetFilters());
     dispatch(setFilter({ key: 'type', value: plantType }));
     navigate(PATH_NAME.SHOP);
   };
 
   const handleShopRedirect = (category: string) => {
+    dispatch(resetFilters());
     dispatch(setFilter({ key: 'category', value: category }));
     navigate(PATH_NAME.SHOP);
   };
@@ -56,5 +55,7 @@ export const useHomePageLogic = () => {
     handleAddPlantInCart,
     handleRemovePlantInCart,
     productsWithCart,
+    isLoading,
+    error,
   };
 };

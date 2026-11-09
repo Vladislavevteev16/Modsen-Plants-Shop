@@ -9,11 +9,11 @@ type CardSliderProps = {
 
 export const CardSlider = ({ title, image, typeValue, handleSelectPlant }: CardSliderProps) => {
   return (
-    <div className={s.slideItem} onClick={() => handleSelectPlant(typeValue)}>
+    <button type="button" className={s.slideItem} onClick={() => handleSelectPlant(typeValue)}>
       <div className={s.imageWrapper}>
         <img src={image} alt={title} />
       </div>
       <span className={s.title}>{title}</span>
-    </div>
+    </button>
   );
 };

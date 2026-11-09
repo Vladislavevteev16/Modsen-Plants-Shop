@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import ArrowLeftIcon from '@/assets/arrow-left.svg?react';
 import ArrowRightIcon from '@/assets/arrow-right.svg?react';
 import { DIRECTION, useSliderLogic } from '@/hooks/useSliderLogic';
@@ -10,7 +12,8 @@ type PlantTypesSliderProps = {
 };
 
 export const PlantTypesSlider = ({ handleSelectPlant }: PlantTypesSliderProps) => {
-  const { handleScroll, plantsTypeList, sliderRef } = useSliderLogic();
+  const { handleScroll, plantsTypeList, sliderRef, isLeftDisabled, isRightDisabled } =
+    useSliderLogic();
 
   return (
     <section className={s.sliderContainer}>
@@ -19,7 +22,8 @@ export const PlantTypesSlider = ({ handleSelectPlant }: PlantTypesSliderProps) =
       <div className={s.sliderWrapper}>
         <button
           type="button"
-          className={`${s.arrowBtn} ${s.arrowLeft}`}
+          disabled={isLeftDisabled}
+          className={clsx(s.arrowBtn, s.arrowLeft, { [s.disabled]: isLeftDisabled })}
           onClick={() => handleScroll(DIRECTION.left)}
         >
           <ArrowLeftIcon />
@@ -39,7 +43,8 @@ export const PlantTypesSlider = ({ handleSelectPlant }: PlantTypesSliderProps) =
 
         <button
           type="button"
-          className={`${s.arrowBtn} ${s.arrowRight}`}
+          disabled={isRightDisabled}
+          className={clsx(s.arrowBtn, s.arrowRight, { [s.disabled]: isRightDisabled })}
           onClick={() => handleScroll(DIRECTION.right)}
         >
           <ArrowRightIcon />

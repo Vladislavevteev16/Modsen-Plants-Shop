@@ -8,8 +8,8 @@ import s from './BestCategories.module.scss';
 
 const BEST_CATEGORIES = [
   { title: 'Dracaena', image: dracaenaImage, categoryValue: 'Dracaena' },
-  { title: 'Pothos', image: foliageImage, categoryValue: 'Pothos' },
-  { title: 'Foliage', image: pothosImage, categoryValue: 'Foliage' },
+  { title: 'Pothos', image: pothosImage, categoryValue: 'Pothos' },
+  { title: 'Foliage', image: foliageImage, categoryValue: 'Foliage' },
 ];
 
 type BestCategories = {
@@ -23,7 +23,6 @@ export const BestCategories = ({ handleShopRedirect }: BestCategories) => {
       <div className={s.grid}>
         {BEST_CATEGORIES.map(({ title, image, categoryValue }) => (
           <CategoryCard
-            variant="category"
             key={title}
             title={title}
             image={image}

@@ -12,7 +12,7 @@ export const QuantityControl = ({
   handleDecrement,
 }: QuantityControlProps) => {
   return (
-    <div className={s.counterConatainer}>
+    <div className={s.counterContainer}>
       <button type="button" className={s.minusBtn} onClick={handleDecrement}>
         −
       </button>
