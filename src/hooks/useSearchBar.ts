@@ -1,10 +1,11 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { getSuggestionProducts } from '@/api/plantApi';
 import { PATH_NAME } from '@/constants/paths';
 import { useAppDispatch } from '@/redux/store/hooks';
-import { setFilter } from '@/redux/store/slices/filterSlice';
+import { resetFilters, setFilter } from '@/redux/store/slices/filterSlice';
 import type { Plant } from '@/types/plant.types';
 
 const DELAY = 300;
@@ -29,6 +30,7 @@ export const useSearchBar = () => {
   };
 
   const handleSelectPlant = (plantName: string) => {
+    dispatch(resetFilters());
     dispatch(setFilter({ key: 'search', value: plantName }));
     setValue('');
     setSuggestions([]);
@@ -45,7 +47,11 @@ export const useSearchBar = () => {
         const response = await getSuggestionProducts(value, controller.signal);
 
         setSuggestions(response.data.images.data);
-      } catch {
+      } catch (err) {
+        if (axios.isCancel(err)) {
+          return;
+        }
+
         setError(ERROR_MSG);
         setSuggestions([]);
       }

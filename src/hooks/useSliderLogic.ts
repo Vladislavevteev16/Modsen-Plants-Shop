@@ -15,12 +15,12 @@ import vineImage from '@/assets/slider-plant-images/vine-image.jpg';
 import { FILTER_DEFAULTS } from '@/constants/api';
 import { FILTER_OPTIONS } from '@/constants/filters';
 
-export type ScrollDirection = 'left' | 'right';
-
-export const DIRECTION: Record<ScrollDirection, ScrollDirection> = {
+export const DIRECTION = {
   left: 'left',
   right: 'right',
-};
+} as const;
+
+type ScrollDirection = keyof typeof DIRECTION;
 
 const SCROLL_AMOUNT = 1230;
 
