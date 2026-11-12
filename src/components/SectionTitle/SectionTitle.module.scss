@@ -1,0 +1,26 @@
+.title {
+  font-size: var(--fs-48);
+  font-weight: var(--fw-700);
+  color: var(--color-secondary-1);
+  line-height: 1;
+  position: relative;
+}
+
+.withLine {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: calc(-1 * var(--space-16));
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background-color: var(--color-secondary-1);
+  }
+}
+
+@media (max-width: $breakpoint-desktop) {
+  .title {
+    font-size: var(--fs-36);
+  }
+}

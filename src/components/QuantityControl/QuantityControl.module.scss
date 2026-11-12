@@ -1,0 +1,59 @@
+$transition: 0.3s ease;
+
+.counterContainer {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 64px;
+  border: 1px solid var(--color-secondary-3);
+  border-radius: var(--space-4);
+  overflow: hidden;
+}
+
+.minusBtn,
+.plusBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-48);
+  background-color: var(--color-white);
+  border: none;
+  font-size: var(--fs-20);
+  cursor: pointer;
+  transition:
+    background-color $transition,
+    color $transition;
+  padding: 0;
+
+  &:active {
+    background-color: var(--color-secondary-3);
+  }
+}
+
+.minusBtn {
+  color: var(--color-secondary-1);
+  border-right: 1px solid var(--color-secondary-3);
+}
+
+.plusBtn {
+  color: var(--color-white);
+  background-color: var(--color-primary-1);
+  border-left: 1px solid var(--color-primary-1);
+
+  &:active {
+    background-color: var(--color-primary-2);
+  }
+}
+
+.quantityValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  font-size: var(--fs-20);
+  font-weight: var(--fw-500);
+  line-height: var(--space-28);
+  color: var(--color-black);
+  background-color: var(--color-white);
+  user-select: none;
+}

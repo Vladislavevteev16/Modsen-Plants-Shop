@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import type { Plant } from '@/types/plant.types';
 
 import s from './AutocompleteList.module.scss';
@@ -5,20 +7,37 @@ import s from './AutocompleteList.module.scss';
 type AutocompleteListProps = {
   searchResults: Plant[];
   handleSelectPlant: (plantName: string) => void;
+  value: string;
+  error: string | null;
 };
 
-export const AutocompleteList = ({ searchResults, handleSelectPlant }: AutocompleteListProps) => {
-  const firstThreePopularPlants = searchResults.slice(0, 3);
+export const AutocompleteList = ({
+  searchResults,
+  handleSelectPlant,
+  value,
+  error,
+}: AutocompleteListProps) => {
+  const hasValue = value.trim().length > 0;
 
-  if (searchResults.length === 0) return null;
+  if (!hasValue) return null;
+
+  const isNotFound = searchResults.length === 0;
+
+  const displaySuggestions = hasValue ? searchResults : [];
 
   return (
     <ul className={s.listContainer}>
-      {firstThreePopularPlants.map(({ id, name }) => (
-        <li className={s.plant} key={id} onClick={() => handleSelectPlant(name)}>
-          {name}
-        </li>
-      ))}
+      {error ? (
+        <li className={clsx(s.plant, s.disabled, s.error)}>{error}</li>
+      ) : isNotFound ? (
+        <li className={clsx(s.plant, s.disabled)}>Not Found</li>
+      ) : (
+        displaySuggestions.map(({ id, name }) => (
+          <li className={s.plant} key={id} onClick={() => handleSelectPlant(name)}>
+            {name}
+          </li>
+        ))
+      )}
     </ul>
   );
 };

@@ -42,3 +42,18 @@ body {
   font-weight: var(--fw-400);
   line-height: 1.5;
 }
+
+@media (max-width: 1024px) {
+  body {
+    &.menu-open header {
+      z-index: var(--z-index-5);
+    }
+
+    &.menu-open main,
+    &.menu-open footer {
+      filter: blur(2px);
+      pointer-events: none;
+      transition: filter 0.3s ease;
+    }
+  }
+}

@@ -2,6 +2,10 @@
   width: 100%;
   max-width: 294px;
   height: auto;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 20px;
 }
 
 .plant {
@@ -21,5 +25,20 @@
   &:hover {
     color: var(--color-white);
     background-color: var(--color-primary-1);
+  }
+}
+
+.disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.error {
+  color: var(--color-negative-1);
+}
+
+@media (max-width: $breakpoint-desktop) {
+  .listContainer {
+    margin-top: var(--space-8);
   }
 }

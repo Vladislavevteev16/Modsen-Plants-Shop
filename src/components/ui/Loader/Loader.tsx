@@ -6,8 +6,9 @@ import s from './Loader.module.scss';
 
 type LoaderProps = {
   isLoading: boolean;
+  className?: string;
 };
 
-export const Loader = ({ isLoading }: LoaderProps) => {
-  return <LoaderIcon className={clsx(s.loader, { [s.loading]: isLoading })} />;
+export const Loader = ({ isLoading, className }: LoaderProps) => {
+  return <LoaderIcon className={clsx(s.loader, { [s.loading]: isLoading }, className)} />;
 };

@@ -1,0 +1,50 @@
+.youMayAlsoContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 860px;
+  margin-top: 86px;
+  gap: var(--space-24);
+}
+
+.productGrid {
+  width: 100%;
+  min-height: 740px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-28);
+}
+
+.loaderWrapper,
+.errorWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 860px;
+  width: 100%;
+}
+
+.errorWrapper {
+  color: var(--color-negative-1);
+  font-size: var(--fs-16);
+}
+
+.loader {
+  width: 150px;
+  height: 150px;
+}
+
+@media (max-width: $breakpoint-desktop) {
+  .youMayAlsoContainer {
+    margin-top: var(--space-40);
+    gap: var(--space-36);
+  }
+
+  .productGrid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: var(--space-24);
+  }
+}
